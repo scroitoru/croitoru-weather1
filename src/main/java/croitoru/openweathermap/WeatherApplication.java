@@ -11,7 +11,7 @@ public class WeatherApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/weather_application.fxml"));
-        root.setStyle("-fx-background-color:aliceblue;"
+        root.setStyle("-fx-background-color:lightblue;"
                         + "-fx-border-style: solid inside;"
                         + "-fx-border-color: black;"
                         + "-fx-border-width: 5;");

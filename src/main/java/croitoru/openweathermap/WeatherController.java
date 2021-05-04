@@ -53,10 +53,9 @@ public class WeatherController {
         String location = locationTF.getText();
         String unit = String.valueOf(unitChoice.getValue()).equals("Fahrenheit")? "imperial" : "metric";
         descriptionTF.setText(String.valueOf(service.getCurrentWeather(location, unit)));
-//        descriptionTF.setText(String.valueOf(forecast.getForcastFor(0)));
         ImageView currImage = new ImageView(forecast.list.get(0).weather.get(0).getIconUrl());
         todayImage.setImage(currImage.getImage());
-        //next 5 days
+//        //next 5 days
         descrip1.setText(String.valueOf(forecast.getForcastFor(1).main.temp));
         descrip2.setText(String.valueOf(forecast.getForcastFor(2).main.temp));
         descrip3.setText(String.valueOf(forecast.getForcastFor(3).main.temp));
