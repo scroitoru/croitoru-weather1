@@ -50,8 +50,10 @@ public class WeatherController {
 
     public void onOpenWeatherMapFeed(OpenWeatherMapForecast forecast) {
         //current weather
-        OpenWeatherMapFeed feed = new OpenWeatherMapFeed();
-        descriptionTF.setText(String.valueOf(feed.main.temp));
+        String location = locationTF.getText();
+        String unit = String.valueOf(unitChoice.getValue()).equals("Fahrenheit")? "imperial" : "metric";
+        descriptionTF.setText(String.valueOf(service.getCurrentWeather(location, unit)));
+//        descriptionTF.setText(String.valueOf(forecast.getForcastFor(0)));
         ImageView currImage = new ImageView(forecast.list.get(0).weather.get(0).getIconUrl());
         todayImage.setImage(currImage.getImage());
         //next 5 days
