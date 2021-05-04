@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="croitoru.openweathermap.WeatherApplication"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="croitoru.openweathermap.WeatherController">
+   <children>
+      <VBox prefHeight="300.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION">
+               <padding>
+                  <Insets top="12.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="37.0" prefWidth="487.0">
+               <children>
+                  <Label prefHeight="20.0" prefWidth="140.0" text="Enter Your Location: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="locationTF" />
+               </children>
+            </HBox>
+            <HBox prefHeight="58.0" prefWidth="568.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="142.0" text="Choose Your Unit: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="unitChoice" prefWidth="150.0" />
+                  <Button fx:id="submit" alignment="CENTER" mnemonicParsing="false" onAction="#onSubmit" text="Submit">
+                     <HBox.margin>
+                        <Insets left="32.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="25.0" prefWidth="568.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="288.0" text="Currently:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="522.0" text="Next 5 Days:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="568.0">
+               <children>
+                  <TextField fx:id="descriptionTF" prefHeight="29.0" prefWidth="110.0" />
+                  <Label fx:id="day1" prefHeight="25.0" prefWidth="75.0" text="1">
+                     <HBox.margin>
+                        <Insets left="56.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="day2" prefHeight="25.0" prefWidth="75.0" text="2">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="day3" prefHeight="25.0" prefWidth="75.0" text="3">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="day4" prefHeight="25.0" prefWidth="75.0" text="4">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="day5" prefHeight="25.0" prefWidth="75.0" text="5">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="81.0" prefWidth="568.0">
+               <children>
+                  <ImageView fx:id="todayImage" fitHeight="97.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets right="32.0" />
+                     </HBox.margin></ImageView>
+                  <VBox prefHeight="97.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="Descrip1" alignment="CENTER" prefHeight="17.0" prefWidth="81.0" />
+                        <ImageView fx:id="image1" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="97.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="Descrip2" alignment="CENTER" prefHeight="17.0" prefWidth="71.0" />
+                        <ImageView fx:id="image2" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="97.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets left="14.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="Descrip3" alignment="CENTER" prefHeight="17.0" prefWidth="72.0" />
+                        <ImageView fx:id="image3" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="97.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets left="14.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="Descrip4" alignment="CENTER" prefHeight="17.0" prefWidth="71.0" />
+                        <ImageView fx:id="image4" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="97.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="Descrip5" alignment="CENTER" prefHeight="17.0" prefWidth="74.0" />
+                        <ImageView fx:id="image5" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" />
+         </padding></VBox>
+   </children>
 </AnchorPane>

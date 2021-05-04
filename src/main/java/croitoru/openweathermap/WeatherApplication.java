@@ -11,7 +11,7 @@ public class WeatherApplication extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/weather_application.fxml"));
 
-        Scene scene = new Scene(root, 600, 800);
+        Scene scene = new Scene(root, 600, 300);
 
         stage.setTitle("Weather Application");
         stage.setScene(scene);
