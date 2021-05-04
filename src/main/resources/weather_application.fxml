@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="croitoru.openweathermap.WeatherController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" stylesheets="@weather_application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="croitoru.openweathermap.WeatherController">
    <children>
       <VBox prefHeight="300.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION" textFill="#4e96a8">
                <padding>
                   <Insets top="12.0" />
                </padding>
@@ -20,39 +20,42 @@
             </Label>
             <HBox prefHeight="37.0" prefWidth="487.0">
                <children>
-                  <Label prefHeight="20.0" prefWidth="140.0" text="Enter Your Location: ">
+                  <Label prefHeight="22.0" prefWidth="140.0" text="Enter Your Location: ">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe Print Bold" size="12.5" />
                      </font>
                   </Label>
-                  <TextField fx:id="locationTF" />
+                  <TextField fx:id="locationTF" prefHeight="25.0" prefWidth="152.0" />
                </children>
             </HBox>
             <HBox prefHeight="58.0" prefWidth="568.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="142.0" text="Choose Your Unit: ">
+                  <Label prefHeight="22.0" prefWidth="140.0" text="Choose Your Unit: ">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe Print Bold" size="12.5" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="unitChoice" prefWidth="150.0" />
+                  <ChoiceBox fx:id="unitChoice" prefHeight="25.0" prefWidth="152.0" />
                   <Button fx:id="submit" alignment="CENTER" mnemonicParsing="false" onAction="#onSubmit" text="Submit">
                      <HBox.margin>
                         <Insets left="32.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Yu Gothic Bold" size="12.0" />
+                     </font>
                   </Button>
                </children>
             </HBox>
             <HBox prefHeight="25.0" prefWidth="568.0">
                <children>
-                  <Label prefHeight="25.0" prefWidth="288.0" text="Currently:">
+                  <Label prefHeight="25.0" prefWidth="288.0" text="CURRENTLY:" textFill="#e1772c">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial Narrow Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="522.0" text="Next 5 Days:">
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="522.0" text="NEXT 5 DAYS:" textFill="#e1772c">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial Narrow Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
@@ -60,29 +63,44 @@
             <HBox prefHeight="34.0" prefWidth="568.0">
                <children>
                   <Label fx:id="descriptionTF" prefHeight="29.0" prefWidth="110.0" />
-                  <Label fx:id="day1" prefHeight="25.0" prefWidth="75.0" text="1">
+                  <Label fx:id="day1" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="1">
                      <HBox.margin>
                         <Insets left="56.0" />
-                     </HBox.margin></Label>
-                  <Label fx:id="day2" prefHeight="25.0" prefWidth="75.0" text="2">
+                     </HBox.margin>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font></Label>
+                  <Label fx:id="day2" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="2">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="day3" prefHeight="25.0" prefWidth="75.0" text="3">
+                  <Label fx:id="day3" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="3">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="day4" prefHeight="25.0" prefWidth="75.0" text="4">
+                  <Label fx:id="day4" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="4">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="day5" prefHeight="25.0" prefWidth="75.0" text="5">
+                  <Label fx:id="day5" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="5">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="20.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
