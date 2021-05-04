@@ -17,7 +17,7 @@ public class WeatherController {
     @FXML
     ChoiceBox<String> unitChoice;
     @FXML
-    TextField descriptionTF;
+    Label descriptionTF;
     @FXML
     Label day1, day2, day3, day4, day5;
     @FXML
@@ -33,19 +33,12 @@ public class WeatherController {
         String[] unitChoices = {"Celsius", "Fahrenheit"};
         unitChoice.setItems(FXCollections.observableArrayList(unitChoices));
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
-        OpenWeatherMapService service = factory.newInstance();
+        service = factory.newInstance();
     }
 
     public void onSubmit(ActionEvent actionEvent) {
         String location = locationTF.getText();
-        unitChoice.getItems().setAll(FXCollections.observableArrayList("Celsius", "Fahrenheit"));
-        int unitIndex = unitChoice.getSelectionModel().getSelectedIndex();
-        String unit;
-        if (unitIndex == 0) {
-            unit = "metric";
-        } else {
-            unit = "imperial";
-        }
+        String unit = String.valueOf(unitChoice.getValue()).equals("Fahrenheit")? "imperial" : "metric";
         Disposable disposable = service.getWeatherForecast(location, unit)
                 // request the data in the background
                 .subscribeOn(Schedulers.io())
@@ -67,10 +60,14 @@ public class WeatherController {
         Descrip3.setText(String.valueOf(forecast.getForcastFor(3).main.temp));
         Descrip4.setText(String.valueOf(forecast.getForcastFor(4).main.temp));
         Descrip5.setText(String.valueOf(forecast.getForcastFor(5).main.temp));
+        image1.setImage(new Image(forecast.getForcastFor(1).weather.get(0).getIconUrl()));
+        image2.setImage(new Image(forecast.getForcastFor(2).weather.get(0).getIconUrl()));
+        image3.setImage(new Image(forecast.getForcastFor(3).weather.get(0).getIconUrl()));
+        image4.setImage(new Image(forecast.getForcastFor(4).weather.get(0).getIconUrl()));
+        image5.setImage(new Image(forecast.getForcastFor(5).weather.get(0).getIconUrl()));
     }
 
     private void onError(Throwable throwable) {
-
         // this is not the correct way to handle errors
         System.out.println("error occurred");
     }
