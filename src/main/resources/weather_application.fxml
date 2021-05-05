@@ -6,47 +6,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0"
-            xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="croitoru.openweathermap.WeatherController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox prefHeight="300.0" prefWidth="600.0">
             <children>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION"
-                       textFill="#4e96a8">
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION" textFill="#4e96a8">
                     <padding>
-                        <Insets top="12.0"/>
+                        <Insets top="12.0" />
                     </padding>
                     <font>
-                        <Font name="System Bold" size="24.0"/>
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
                 <HBox prefHeight="37.0" prefWidth="487.0">
                     <children>
                         <Label prefHeight="22.0" prefWidth="140.0" text="Enter Your Location: ">
                             <font>
-                                <Font name="Segoe Print Bold" size="12.5"/>
+                                <Font name="Segoe Print Bold" size="12.5" />
                             </font>
                         </Label>
-                        <TextField fx:id="locationTF" prefHeight="25.0" prefWidth="152.0"/>
+                        <TextField fx:id="locationTF" prefHeight="25.0" prefWidth="152.0" />
                     </children>
                 </HBox>
                 <HBox prefHeight="58.0" prefWidth="568.0">
                     <children>
                         <Label prefHeight="22.0" prefWidth="140.0" text="Choose Your Unit: ">
                             <font>
-                                <Font name="Segoe Print Bold" size="12.5"/>
+                                <Font name="Segoe Print Bold" size="12.5" />
                             </font>
                         </Label>
-                        <ChoiceBox fx:id="unitChoice" prefHeight="25.0" prefWidth="152.0"/>
-                        <Button fx:id="submit" alignment="CENTER" mnemonicParsing="false" onAction="#onSubmit"
-                                text="Submit">
+                        <ChoiceBox fx:id="unitChoice" prefHeight="25.0" prefWidth="152.0" />
+                        <Button fx:id="submit" alignment="CENTER" mnemonicParsing="false" onAction="#onSubmit" text="Submit">
                             <HBox.margin>
-                                <Insets left="32.0"/>
+                                <Insets left="32.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Yu Gothic Bold" size="12.0"/>
+                                <Font name="Yu Gothic Bold" size="12.0" />
                             </font>
                         </Button>
                     </children>
@@ -55,125 +50,118 @@
                     <children>
                         <Label prefHeight="25.0" prefWidth="288.0" text="CURRENTLY:" textFill="#e1772c">
                             <font>
-                                <Font name="Arial Narrow Bold" size="18.0"/>
+                                <Font name="Arial Narrow Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="522.0" text="NEXT 5 DAYS:"
-                               textFill="#e1772c">
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="522.0" text="NEXT 5 DAYS:" textFill="#e1772c">
                             <font>
-                                <Font name="Arial Narrow Bold" size="18.0"/>
+                                <Font name="Arial Narrow Bold" size="18.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
                 <HBox prefHeight="34.0" prefWidth="568.0">
                     <children>
-                        <Label fx:id="descriptionTF" prefHeight="29.0" prefWidth="110.0"/>
+                        <Label fx:id="descriptionTF" prefHeight="29.0" prefWidth="110.0" />
                         <Label fx:id="day1" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="1">
                             <HBox.margin>
-                                <Insets left="56.0"/>
+                                <Insets left="56.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Bookman Old Style Bold" size="20.0"/>
+                                <Font name="Bookman Old Style Bold" size="20.0" />
                             </font>
                         </Label>
                         <Label fx:id="day2" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="2">
                             <HBox.margin>
-                                <Insets left="8.0"/>
+                                <Insets left="8.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Bookman Old Style Bold" size="20.0"/>
+                                <Font name="Bookman Old Style Bold" size="20.0" />
                             </font>
                         </Label>
                         <Label fx:id="day3" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="3">
                             <HBox.margin>
-                                <Insets left="8.0"/>
+                                <Insets left="8.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Bookman Old Style Bold" size="20.0"/>
+                                <Font name="Bookman Old Style Bold" size="20.0" />
                             </font>
                         </Label>
                         <Label fx:id="day4" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="4">
                             <HBox.margin>
-                                <Insets left="8.0"/>
+                                <Insets left="8.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Bookman Old Style Bold" size="20.0"/>
+                                <Font name="Bookman Old Style Bold" size="20.0" />
                             </font>
                         </Label>
                         <Label fx:id="day5" alignment="CENTER" prefHeight="25.0" prefWidth="75.0" text="5">
                             <HBox.margin>
-                                <Insets left="8.0"/>
+                                <Insets left="8.0" />
                             </HBox.margin>
                             <font>
-                                <Font name="Bookman Old Style Bold" size="20.0"/>
+                                <Font name="Bookman Old Style Bold" size="20.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
                 <HBox prefHeight="81.0" prefWidth="568.0">
                     <children>
-                        <ImageView fx:id="todayImage" fitHeight="97.0" fitWidth="108.0" pickOnBounds="true"
-                                   preserveRatio="true">
+                        <ImageView fx:id="todayImage" fitHeight="97.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>
-                                <Insets right="32.0"/>
+                                <Insets right="32.0" />
                             </HBox.margin>
                         </ImageView>
                         <VBox prefHeight="97.0" prefWidth="70.0">
                             <HBox.margin>
-                                <Insets left="25.0"/>
+                                <Insets left="25.0" />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="descrip1" alignment="CENTER" prefHeight="17.0" prefWidth="81.0"/>
-                                <ImageView fx:id="image1" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <Label fx:id="descrip1" alignment="CENTER" prefHeight="17.0" prefWidth="81.0" />
+                                <ImageView fx:id="image1" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                         <VBox prefHeight="97.0" prefWidth="70.0">
                             <HBox.margin>
-                                <Insets left="12.0"/>
+                                <Insets left="12.0" />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="descrip2" alignment="CENTER" prefHeight="17.0" prefWidth="71.0"/>
-                                <ImageView fx:id="image2" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <Label fx:id="descrip2" alignment="CENTER" prefHeight="17.0" prefWidth="71.0" />
+                                <ImageView fx:id="image2" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                         <VBox prefHeight="97.0" prefWidth="70.0">
                             <HBox.margin>
-                                <Insets left="14.0"/>
+                                <Insets left="14.0" />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="descrip3" alignment="CENTER" prefHeight="17.0" prefWidth="72.0"/>
-                                <ImageView fx:id="image3" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <Label fx:id="descrip3" alignment="CENTER" prefHeight="17.0" prefWidth="72.0" />
+                                <ImageView fx:id="image3" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                         <VBox prefHeight="97.0" prefWidth="70.0">
                             <HBox.margin>
-                                <Insets left="14.0"/>
+                                <Insets left="14.0" />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="descrip4" alignment="CENTER" prefHeight="17.0" prefWidth="71.0"/>
-                                <ImageView fx:id="image4" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <Label fx:id="descrip4" alignment="CENTER" prefHeight="17.0" prefWidth="71.0" />
+                                <ImageView fx:id="image4" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                         <VBox prefHeight="97.0" prefWidth="70.0">
                             <HBox.margin>
-                                <Insets left="12.0"/>
+                                <Insets left="12.0" />
                             </HBox.margin>
                             <children>
-                                <Label fx:id="descrip5" alignment="CENTER" prefHeight="17.0" prefWidth="74.0"/>
-                                <ImageView fx:id="image5" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <Label fx:id="descrip5" alignment="CENTER" prefHeight="17.0" prefWidth="74.0" />
+                                <ImageView fx:id="image5" fitHeight="72.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                     </children>
                 </HBox>
             </children>
             <padding>
-                <Insets bottom="16.0" left="16.0" right="16.0"/>
+                <Insets bottom="16.0" left="16.0" right="16.0" />
             </padding>
         </VBox>
     </children>

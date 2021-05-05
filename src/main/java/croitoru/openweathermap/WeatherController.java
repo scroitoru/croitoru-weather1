@@ -2,6 +2,7 @@ package croitoru.openweathermap;
 
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,10 @@ public class WeatherController {
 
     OpenWeatherMapService service;
 
+    public WeatherController(OpenWeatherMapService service){
+        this.service = service;
+    }
+
     public void initialize() {
         String[] unitChoices = {"Celsius", "Fahrenheit"};
         unitChoice.setItems(FXCollections.observableArrayList(unitChoices));
@@ -49,18 +54,19 @@ public class WeatherController {
     }
 
     public void onOpenWeatherMapFeed(OpenWeatherMapForecast forecast) {
-        //current weather
-        String location = locationTF.getText();
-        String unit = String.valueOf(unitChoice.getValue()).equals("Fahrenheit")? "imperial" : "metric";
-        descriptionTF.setText(String.valueOf(service.getCurrentWeather(location, unit)));
+        //current weather icon
         ImageView currImage = new ImageView(forecast.list.get(0).weather.get(0).getIconUrl());
         todayImage.setImage(currImage.getImage());
-//        //next 5 days
-        descrip1.setText(String.valueOf(forecast.getForcastFor(1).main.temp));
-        descrip2.setText(String.valueOf(forecast.getForcastFor(2).main.temp));
-        descrip3.setText(String.valueOf(forecast.getForcastFor(3).main.temp));
-        descrip4.setText(String.valueOf(forecast.getForcastFor(4).main.temp));
-        descrip5.setText(String.valueOf(forecast.getForcastFor(5).main.temp));
+//        //curr weather & next 5 days temp
+        Platform.runLater(() -> {
+            descriptionTF.setText(String.valueOf(forecast.getForcastFor(0).main.temp));
+            descrip1.setText(String.valueOf(forecast.getForcastFor(1).main.temp));
+            descrip2.setText(String.valueOf(forecast.getForcastFor(2).main.temp));
+            descrip3.setText(String.valueOf(forecast.getForcastFor(3).main.temp));
+            descrip4.setText(String.valueOf(forecast.getForcastFor(4).main.temp));
+            descrip5.setText(String.valueOf(forecast.getForcastFor(5).main.temp));
+        });
+        //next 5 days icons
         image1.setImage(new Image(forecast.getForcastFor(1).weather.get(0).getIconUrl()));
         image2.setImage(new Image(forecast.getForcastFor(2).weather.get(0).getIconUrl()));
         image3.setImage(new Image(forecast.getForcastFor(3).weather.get(0).getIconUrl()));
@@ -69,7 +75,6 @@ public class WeatherController {
     }
 
     private void onError(Throwable throwable) {
-        // this is not the correct way to handle errors
-        System.out.println("error occurred");
+        throwable.printStackTrace();
     }
 }
