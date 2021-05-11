@@ -12,15 +12,11 @@ import javafx.scene.image.ImageView;
 
 public class WeatherController {
     @FXML
-    public Button submit;
-    @FXML
     TextField locationTF;
     @FXML
     ChoiceBox<String> unitChoice;
     @FXML
     Label descriptionTF;
-    @FXML
-    Label day1, day2, day3, day4, day5;
     @FXML
     ImageView todayImage;
     @FXML
@@ -35,10 +31,8 @@ public class WeatherController {
     }
 
     public void initialize() {
-        String[] unitChoices = {"Celsius", "Fahrenheit"};
+        String[] unitChoices = {"Fahrenheit", "Celsius"};
         unitChoice.setItems(FXCollections.observableArrayList(unitChoices));
-        OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
-        service = factory.newInstance();
     }
 
     public void onSubmit(ActionEvent actionEvent) {
@@ -59,19 +53,19 @@ public class WeatherController {
         todayImage.setImage(currImage.getImage());
 //        //curr weather & next 5 days temp
         Platform.runLater(() -> {
-            descriptionTF.setText(String.valueOf(forecast.getForcastFor(0).main.temp));
-            descrip1.setText(String.valueOf(forecast.getForcastFor(1).main.temp));
-            descrip2.setText(String.valueOf(forecast.getForcastFor(2).main.temp));
-            descrip3.setText(String.valueOf(forecast.getForcastFor(3).main.temp));
-            descrip4.setText(String.valueOf(forecast.getForcastFor(4).main.temp));
-            descrip5.setText(String.valueOf(forecast.getForcastFor(5).main.temp));
+            descriptionTF.setText(String.valueOf(forecast.getForecastFor(0).main.temp));
+            descrip1.setText(String.valueOf(forecast.getForecastFor(1).main.temp));
+            descrip2.setText(String.valueOf(forecast.getForecastFor(2).main.temp));
+            descrip3.setText(String.valueOf(forecast.getForecastFor(3).main.temp));
+            descrip4.setText(String.valueOf(forecast.getForecastFor(4).main.temp));
+            descrip5.setText(String.valueOf(forecast.getForecastFor(5).main.temp));
         });
         //next 5 days icons
-        image1.setImage(new Image(forecast.getForcastFor(1).weather.get(0).getIconUrl()));
-        image2.setImage(new Image(forecast.getForcastFor(2).weather.get(0).getIconUrl()));
-        image3.setImage(new Image(forecast.getForcastFor(3).weather.get(0).getIconUrl()));
-        image4.setImage(new Image(forecast.getForcastFor(4).weather.get(0).getIconUrl()));
-        image5.setImage(new Image(forecast.getForcastFor(5).weather.get(0).getIconUrl()));
+        image1.setImage(new Image(forecast.getForecastFor(1).weather.get(0).getIconUrl()));
+        image2.setImage(new Image(forecast.getForecastFor(2).weather.get(0).getIconUrl()));
+        image3.setImage(new Image(forecast.getForecastFor(3).weather.get(0).getIconUrl()));
+        image4.setImage(new Image(forecast.getForecastFor(4).weather.get(0).getIconUrl()));
+        image5.setImage(new Image(forecast.getForecastFor(5).weather.get(0).getIconUrl()));
     }
 
     private void onError(Throwable throwable) {

@@ -1,5 +1,6 @@
 package croitoru.openweathermap;
 
+import io.reactivex.rxjava3.core.Single;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -14,71 +15,64 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 import static org.mockito.Mockito.mock;
-public class WeatherControllerTest extends TestCase {
+public class WeatherControllerTest {
 
     @BeforeClass
     public static void beforeClass() {
         com.sun.javafx.application.PlatformImpl.startup(()->{});
     }
 
+    //working test
     @Test
-    public void Initialize() {
+    public void initialize() {
         //given
-        WeatherController controller = given();
-        String[] unitChoices = {"Celsius", "Fahrenheit"};
-        controller.unitChoice.setItems(FXCollections.observableArrayList(unitChoices));
-
+       OpenWeatherMapService service = mock(OpenWeatherMapService.class);
+       WeatherController controller = new WeatherController(service);
+       controller.unitChoice = mock(ChoiceBox.class);
         //when
         controller.initialize();
 
         //then
-        verify(!controller.unitChoice.getSelectionModel().isEmpty());
+        verify(controller.unitChoice).setItems(any());
+
     }
 
+    //working test
     @Test
     public void onSubmit(){
         //given
-        WeatherController controller = given();
+        OpenWeatherMapService service = mock(OpenWeatherMapService.class);
+        WeatherController controller = new WeatherController(service);
+        controller.locationTF = mock(TextField.class);
+        controller.unitChoice = mock(ChoiceBox.class);
+        doReturn("New York").when(controller.locationTF).getText();
+        doReturn("Celsius").when(controller.unitChoice).getValue();
+        doReturn(Single.never()).when(service).getWeatherForecast("New York", "metric");
 
         //when
         controller.onSubmit(mock(ActionEvent.class));
 
         //then
-        verify(controller.locationTF.getText());
-        verify(String.valueOf(controller.unitChoice.getValue().equals("Fahrenheit")? "imperial" : "metric"));
+        verify(controller.locationTF).getText();
+        verify(controller.unitChoice).getValue();
+        verify(service).getWeatherForecast("New York", "metric");
     }
 
+    //DIDN"T DO THIS TEST YET
     @Test
     public void onOpenWeatherMapFeed(){
         //given
-        WeatherController controller = given();
+        OpenWeatherMapService service = mock(OpenWeatherMapService.class);
+        WeatherController controller = new WeatherController(service);
         OpenWeatherMapForecast forecast = mock(OpenWeatherMapForecast.class);
         OpenWeatherMapFeed feed = mock(OpenWeatherMapFeed.class);
 
         //when
         controller.onOpenWeatherMapFeed(forecast);
 
-        //then
+//        //then
+//        verify(controller.)
         //verify(controller.descriptionTF.setText(String.valueOf(feed.main.temp)));
     }
 
-    public WeatherController given(){
-        WeatherController controller = new WeatherController();
-        controller.submit = mock(Button.class);
-        controller.locationTF= mock(TextField.class);
-        controller.unitChoice = mock(ChoiceBox.class);
-        controller.descriptionTF = mock(Label.class);
-        controller.todayImage = mock(ImageView.class);
-        controller.image1 = mock(ImageView.class);
-        controller.image2 = mock(ImageView.class);
-        controller.image3 = mock(ImageView.class);
-        controller.image4 = mock(ImageView.class);
-        controller.image5 = mock(ImageView.class);
-        controller.descrip1 = mock(Label.class);
-        controller.descrip2 = mock(Label.class);
-        controller.descrip3 = mock(Label.class);
-        controller.descrip4 = mock(Label.class);
-        controller.descrip5 = mock(Label.class);
-        return controller;
-    }
 }
