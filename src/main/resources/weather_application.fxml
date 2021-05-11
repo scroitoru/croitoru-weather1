@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -11,7 +10,7 @@
     <children>
         <VBox prefHeight="300.0" prefWidth="600.0">
             <children>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION">
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="604.0" text="WEATHER APPLICATION" textFill="#41a1d2">
                     <padding>
                         <Insets top="12.0" />
                     </padding>

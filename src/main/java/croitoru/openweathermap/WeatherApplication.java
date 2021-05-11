@@ -18,7 +18,7 @@ public class WeatherApplication extends Application {
         Parent root = loader.load();
         root.setStyle("-fx-background-color:lightblue;"
                         + "-fx-border-style: solid inside;"
-                        + "-fx-border-color: #e1772c;"
+                        + "-fx-border-color: black;"
                         + "-fx-border-width: 5;");
 
         Scene scene = new Scene(root, 600, 300);
