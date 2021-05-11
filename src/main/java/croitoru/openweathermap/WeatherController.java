@@ -16,7 +16,7 @@ public class WeatherController {
     @FXML
     ChoiceBox<String> unitChoice;
     @FXML
-    Label descriptionTF;
+    Label currDescription;
     @FXML
     ImageView todayImage;
     @FXML
@@ -53,7 +53,7 @@ public class WeatherController {
         todayImage.setImage(currImage.getImage());
 //        //curr weather & next 5 days temp
         Platform.runLater(() -> {
-            descriptionTF.setText(String.valueOf(forecast.getForecastFor(0).main.temp));
+            currDescription.setText(String.valueOf(forecast.getForecastFor(0).main.temp));
             descrip1.setText(String.valueOf(forecast.getForecastFor(1).main.temp));
             descrip2.setText(String.valueOf(forecast.getForecastFor(2).main.temp));
             descrip3.setText(String.valueOf(forecast.getForecastFor(3).main.temp));
